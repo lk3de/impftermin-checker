@@ -1,0 +1,42 @@
+{
+    "datasets": [
+        {
+            "name": "Erika Mustermann",
+            "code": "ABCD-1234-9876",
+            "plz": 12345,
+            "url": "001-iz.impfterminservice.de",
+            "notification_emails": ["erika@mustermann.de", "nospam@example.org"]
+        },
+        {
+            "name": "Erika Mustermann",
+            "plz": 12345,
+            "url": "001-iz.impfterminservice.de",
+            "notification_emails": ["erika@mustermann.de"]
+        },
+        {
+            "name": "Impfzentrum Demozentrum",
+            "plz": 12345,
+            "url": "001-iz.impfterminservice.de",
+            "age": 40,
+            "notification_emails": ["nospam@example.org"]
+        }
+    ],
+    "datasets_disabled": [
+        {
+            "name": "Erika Mustermann",
+            "code": "ABCD-1234-9876",
+            "plz": 12345,
+            "url": "001-iz.impfterminservice.de",
+            "notification_emails": ["erika@mustermann.de", "nospam@example.org"]
+        }
+    ],
+    "smtp_server": "mail.myserver.com",
+    "smtp_port": 587,
+    "smtp_user": "myuser",
+    "smtp_password": "mysupersecretpassword",
+    "wait_time_between_each_run": 300,
+    "wait_time_between_each_dataset": 10,
+    "telegram_token": "mysupersecrettoken",
+    "telegram_chat_ids": ["123456789", "987654321"],
+    "alarm_sound_file": "alarm.mp3"
+}
