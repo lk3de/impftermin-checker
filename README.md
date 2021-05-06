@@ -3,7 +3,7 @@
 ### Install dependencies
 Install the dependencies with:
 ```
-pip3 install selenium telegram telegram-bot playsound
+pip3 install selenium python-telegram-bot playsound
 ```
 
 ### Install Geckodriver
