@@ -1,6 +1,13 @@
 # Change Log
 All notable changes will be documented in this file.
 
+##2021-05-16
+The Branch light will serve as a lightweight version for the original bot. Only functionality for the Telegram Bot. 
+Changes:
+- restructered into classes
+- added randomizer to time
+- fixed bug with Johnson and Johnson Vaccine (exception thrown because no 2nd date exists)
+
 ## 2021-04-04
 ### Added
 - Ability to search for Vermittlungscodes base on a given age. Currently, quite often you can only get a Vermittlungscode if you're older than 60, because the Impfzentrum only has AstraZeneca and no other vaccine.
