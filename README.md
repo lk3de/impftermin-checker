@@ -77,6 +77,6 @@ If there's a Vermittlungscode, it will notify you via email and Telegram, but wi
 ## Open Todos
 * ~Implement the search for an appointment without having a Vermittlungscode~
 * Create an individual Telegram notification configuration for each `dataset` entry, instead of one global configuration (similar to email notifications).
-* Refactor the `check_impftermin` function, probably also the `send_email` and `send_telegram_notification` functions, to class functions instead of global functions.
+* ~Refactor the `check_impftermin` function, probably also the `send_email` and `send_telegram_notification` functions, to class functions instead of global functions.~
 ## Backlog ideas
 * ~Send notifications via Telegram Bot~
