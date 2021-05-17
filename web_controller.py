@@ -184,15 +184,14 @@ class WebController:
                     for appointment in appointment_list:
                         dates = appointment.text.split(sep="\n")
                         date_1 = datetime.strptime(dates[0][5:23], "%d.%m.%Y - %H:%M")
-                        date_2 = datetime.strptime(dates[2][5:23], "%d.%m.%Y - %H:%M")
-                        date_tupel = [date_1, date_2]
-                        print(f"Terminpaar gefunden: {date_1:%d.%m.%Y, %H:%M} / {date_2:%d.%m.%Y, %H:%M}")
+                        date_tupel = [date_1]
+                        print(f"Terminpaar gefunden: {date_1:%d.%m.%Y, %H:%M}")
                         if all(date > dataset.min_date for date in date_tupel):
                             print(f"Terminpaar liegt nach dem Mindest-Datum ({dataset.min_date:%d.%m.%Y}). Hurra!")
-                            print(f"--> Impftermin gefunden: {date_1:%d.%m.%Y, %H:%M} / {date_2:%d.%m.%Y, %H:%M}")
+                            print(f"--> Impftermin gefunden: {date_1:%d.%m.%Y, %H:%M}")
 
                             now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-                            body = f"IMPFTERMIN: Für den Eintrag \"{dataset.name}\" (Vermittlungscode: {dataset.code}) ist folgender Impftermin verfügbar: {date_1:%d.%m.%Y, %H:%M} / {date_2:%d.%m.%Y, %H:%M}. Der Termin verfällt in 10 Minuten wieder. Uhrzeit jetzt: {now} - bitte schnell buchen! Link: {url}"
+                            body = f"IMPFTERMIN: Für den Eintrag \"{dataset.name}\" (Vermittlungscode: {dataset.code}) ist folgender Impftermin verfügbar: {date_1:%d.%m.%Y, %H:%M}. Der Termin verfällt in 10 Minuten wieder. Uhrzeit jetzt: {now} - bitte schnell buchen! Link: {url}"
                             print(body)
                             CommunicationController.send_email(notification_emails=dataset.notification_emails,
                                        subject=f"Impftermin verfügbar für {dataset.name}", config=config,
