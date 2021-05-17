@@ -1,6 +1,14 @@
 # Change Log
 All notable changes will be documented in this file.
 
+## 2021-05-17
+### Changed
+- Browser will stay open now (maybe helps with detection of being a bot)
+- Refactored Classes into a Webcontroller and Communicationcontroller
+- Added random timings for accessing website aswell as waiting for next appointment
+### Fixed
+- "Hotfix" Johnson & Johnson Bug (Removed Functionality for 2nd date)
+
 ## 2021-04-04
 ### Added
 - Ability to search for Vermittlungscodes base on a given age. Currently, quite often you can only get a Vermittlungscode if you're older than 60, because the Impfzentrum only has AstraZeneca and no other vaccine.
