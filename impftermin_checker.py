@@ -2,8 +2,9 @@
 
 import sys
 import time
-from datetime import datetime
 import json
+from datetime import datetime
+from random import randrange
 
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -75,12 +76,13 @@ if __name__ == "__main__":
             if WebController.check_impftermin(driver=driver, dataset=data, config=config):
                 sys.exit(0)
 
-            # Warte 1s vor dem nächsten Dataset
-            print(f"Warte {config['wait_time_between_each_dataset']}s vor dem nächsten Code.")
-            time.sleep(config["wait_time_between_each_dataset"])
+            # Warte vor dem nächsten Dataset
+            waiting_time_dataset = config['waiting_time_between_each_dataset'] + randrange(5)
+            print(f"Warte {waiting_time_dataset}s vor dem nächsten Code.")
+            time.sleep(waiting_time_dataset)
 
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        print(f"\nEs ist {now}, warte {config['wait_time_between_each_run']}s vor dem nächsten Lauf.")
-
-        time.sleep(config["wait_time_between_each_run"])
+        waiting_time_run = config['wait_time_between_each_run'] + randrange(45)
+        print(f"\nEs ist {now}, warte {waiting_time_run}s vor dem nächsten Lauf.")
+        time.sleep(waiting_time_run)
         print("Wartezeit abgelaufen.")
