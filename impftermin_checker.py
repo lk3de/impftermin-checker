@@ -77,12 +77,12 @@ if __name__ == "__main__":
                 sys.exit(0)
 
             # Warte vor dem nächsten Dataset
-            waiting_time_dataset = config['waiting_time_between_each_dataset'] + randrange(5)
-            print(f"Warte {waiting_time_dataset}s vor dem nächsten Code.")
-            time.sleep(waiting_time_dataset)
+            wait_time_dataset = config['wait_time_between_each_dataset'] + randrange(5)
+            print(f"Warte {wait_time_dataset}s vor dem nächsten Code.")
+            time.sleep(wait_time_dataset)
 
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        waiting_time_run = config['wait_time_between_each_run'] + randrange(45)
-        print(f"\nEs ist {now}, warte {waiting_time_run}s vor dem nächsten Lauf.")
-        time.sleep(waiting_time_run)
+        wait_time_run = config['wait_time_between_each_run'] + randrange(45)
+        print(f"\nEs ist {now}, warte {wait_time_run}s vor dem nächsten Lauf.")
+        time.sleep(wait_time_run)
         print("Wartezeit abgelaufen.")
