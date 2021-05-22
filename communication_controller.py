@@ -1,4 +1,9 @@
-import telegram
+try:
+    import telegram
+except Exception:
+    print("Could not import telegram. Chat bot not available.")
+    telegram = None
+
 import smtplib
 from email.message import EmailMessage
 
@@ -7,6 +12,8 @@ class CommunicationController:
 
     @staticmethod
     def send_telegram_message(message_text, config, silent=False):
+        if not telegram:
+            return
         bot = telegram.Bot(token=config["telegram_token"])
         for chat_id in config["telegram_chat_ids"]:
             try:
