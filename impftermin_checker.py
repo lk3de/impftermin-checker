@@ -48,13 +48,9 @@ if __name__ == "__main__":
     # Dauerschleife über alle Datasets in Config-Datei
     # Jeweils x Sekunden Pause nach Durchlaufen aller Datasets
     while True:
-        config['wait_time_between_each_run'] = config['wait_time_between_each_run'] + randrange(10)
-        config['wait_time_between_each_dataset'] = config['wait_time_between_each_run'] + randrange(3)
 
         now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         print(f"\n\nEs ist {now}, starte nächsten Versuch:")
-
-
 
         for dataset in config["datasets"]:
 
