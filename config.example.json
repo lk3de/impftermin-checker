@@ -38,5 +38,6 @@
     "wait_time_between_each_dataset": 10,
     "telegram_token": "mysupersecrettoken",
     "telegram_chat_ids": ["123456789", "987654321"],
-    "alarm_sound_file": "alarm.mp3"
+    "alarm_sound_file": "alarm.mp3",
+    "use_chrome": true
 }

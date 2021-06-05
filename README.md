@@ -6,8 +6,10 @@ Install the dependencies with:
 pip3 install selenium python-telegram-bot playsound
 ```
 
-### Install Geckodriver
+### Install Geckodriver or Chromedriver
 The Checker uses Selenium with Firefox. For that to work, you need to have the [Geckodriver](https://github.com/mozilla/geckodriver/releases) executable in your PATH. Download the respective binary for your OS and make sure it's accessible (on Ubuntu, just run `apt-get install firefox-geckodriver`).
+
+You can also use Chrome by setting use_chrome in the config to True. For that to work, you need to have the [Chromedriver](https://chromedriver.chromium.org/downloads) executable in your PATH. Download the respective binary for your OS and make sure it's accessible. 
 
 ### Create `config.json`
 Create a `config.json` based on the `config.example.json`.

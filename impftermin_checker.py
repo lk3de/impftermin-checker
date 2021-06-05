@@ -6,9 +6,6 @@ import json
 from datetime import datetime
 from random import randrange
 
-from selenium import webdriver
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 from web_controller import WebController
 
 
@@ -35,15 +32,11 @@ if __name__ == "__main__":
     with open("config.json", encoding="utf-8") as config_file:
         config = json.load(config_file)
 
-    # Firefox-Driver anlegen
-    options = FirefoxOptions()
-    # options.add_argument("-devtools")
-    profile = FirefoxProfile()
-    profile.set_preference("browser.cache.disk.enable", False)
-    profile.set_preference("browser.cache.memory.enable", False)
-    profile.set_preference("browser.cache.offline.enable", False)
-    profile.set_preference("network.cookie.cookieBehavior", 1)
-    driver = webdriver.Firefox(options=options, firefox_profile=profile)
+    if config["use_chrome"]:
+        driver = WebController.create_chromedriver()
+    else:
+        driver = WebController.create_firefoxdriver()
+
 
     # Dauerschleife über alle Datasets in Config-Datei
     # Jeweils x Sekunden Pause nach Durchlaufen aller Datasets
