@@ -56,7 +56,7 @@ class WebController:
         print("Akzeptiere Cookie-Banner.")
         try:
             WebDriverWait(driver, 2).until(EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/app-root/div/div/div/div[2]/div[2]/div/div[1]/a"))).click()
+                (By.XPATH, "/html/body/app-root/div/div/div/div[3]/div[2]/div/div[1]/a"))).click().idea
         except TimeoutException:
             print("Cookie-Banner nicht gefunden, überspringe diesen Schritt")
 
