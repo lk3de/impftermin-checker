@@ -32,7 +32,7 @@ For each `dataset` entry with Vermittlungscode, you can optionally state a `min_
 }
 ```
 
-#### Without Vermittlungscode
+#### Without Vermittlungscode (not recommended)
 If you don't have a code yet, please only enter **one** `dataset` per Impfzentrum. The Checker will then query that Impfzentrum if there are any free appointments in general.
 
 For each `dataset`entry without Vermittlungscode, you can optionally state an `age`. The checker will then check if a Vermittlungscode is available for the given age. If you don't state an `age`, the checker will search with `age = 99`.
@@ -56,6 +56,7 @@ if (oSession.uriContains("impfterminservice") && oSession.uriContains("terminche
 }
 ```
 After that, you can use Chrome or Edge (Firefox doesn't work because it has its own trust store) manually to open the Impterminservice page and request a Vermittlungscode. The snippet above will modify the server's response before it reaches the local local browser frontend, making it think that a Vermittlungscode can be generated. Enter your data and receive your code instantly.
+
 If it doesn't work, try to enable Rules -> Automatic Breakpoints -> After responses in Fiddler. Then, request a Vermittlungscode again. This will pause every request from the browser and you need to open it in Fiddler and click the "Run to Completion" button to complete it. Make sure that your modified response is shown in the TextView or SyntaxView.
 
 
