@@ -48,7 +48,7 @@ For each `dataset`entry without Vermittlungscode, you can optionally state an `a
 }
 ```
 
-#### Alternative option to get a Vermittlungscode instantly (Windows-only)
+#### Recommended option to get a Vermittlungscode instantly (Windows-only)
 Download and install [Fiddler Classic](https://www.telerik.com/fiddler/fiddler-classic), which works as a proxy and allows you to intercept the server's response before it reaches the browser. Open it and go to Tools -> Options -> HTTPS. Activate the checkbox "Decrypt HTTPS traffic" and confirm the pop-up messages that appear. This will install the Fiddler root certificate into your Windows certificate trust store. **Remark: Fiddler will be able to act as [MITM](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) and decrypt all HTTPS traffic of any application as of here!** Then go to Rules -> Customize Rules to open the Fiddler ScriptEditor. Inside the function `OnBeforeResponse`, add the following snippet and save it:
 ```
 if (oSession.uriContains("impfterminservice") && oSession.uriContains("termincheck")) {
@@ -56,6 +56,7 @@ if (oSession.uriContains("impfterminservice") && oSession.uriContains("terminche
 }
 ```
 After that, you can use Chrome or Edge (Firefox doesn't work because it has its own trust store) manually to open the Impterminservice page and request a Vermittlungscode. The snippet above will modify the server's response before it reaches the local local browser frontend, making it think that a Vermittlungscode can be generated. Enter your data and receive your code instantly.
+If it doesn't work, try to enable Rules -> Automatic Breakpoints -> After responses in Fiddler. Then, request a Vermittlungscode again. This will pause every request from the browser and you need to open it in Fiddler and click the "Run to Completion" button to complete it. Make sure that your modified response is shown in the TextView or SyntaxView.
 
 
 #### Resources to build your `config.json`
