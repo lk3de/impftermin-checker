@@ -1,4 +1,5 @@
 config.json
 .vscode/
+.idea/
 geckodriver.log
 __pycache__/

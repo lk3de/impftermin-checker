@@ -2,10 +2,13 @@ import time
 from datetime import datetime
 
 from playsound import playsound
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium import webdriver
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 from communication_controller import CommunicationController
 
@@ -56,7 +59,7 @@ class WebController:
         print("Akzeptiere Cookie-Banner.")
         try:
             WebDriverWait(driver, 2).until(EC.element_to_be_clickable(
-                (By.XPATH, "/html/body/app-root/div/div/div/div[2]/div[2]/div/div[1]/a"))).click()
+                (By.XPATH, "/html/body/app-root/div/div/div/div[3]/div[2]/div/div[1]/a"))).click()
         except TimeoutException:
             print("Cookie-Banner nicht gefunden, überspringe diesen Schritt")
 
@@ -211,3 +214,22 @@ class WebController:
                 except NoSuchElementException:
                     print("Konnte keine Termine auf der Seite parsen.")
                     return False
+
+    @staticmethod
+    def create_chromedriver():
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--disable-extensions')
+        chrome_options.add_argument('--profile-directory=Default')
+        chrome_options.add_argument("--disable-plugins-discovery")
+        chrome_options.add_argument("--start-maximized")
+        return webdriver.Chrome(options=chrome_options)
+
+    @staticmethod
+    def create_firefoxdriver():
+        options = FirefoxOptions()
+        profile = FirefoxProfile()
+        profile.set_preference("browser.cache.disk.enable", False)
+        profile.set_preference("browser.cache.memory.enable", False)
+        profile.set_preference("browser.cache.offline.enable", False)
+        profile.set_preference("network.cookie.cookieBehavior", 1)
+        return webdriver.Firefox(options=options, firefox_profile=profile)
