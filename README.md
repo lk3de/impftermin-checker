@@ -1,3 +1,6 @@
+# Thank you!
+Finding an appointment to get your shot is luckily not an issue anymore. Thus, I am archiving the repository. Thanks for all starts and contributions! Stay healthy! 
+
 # Impftermin-Checker
 
 ## Setup
